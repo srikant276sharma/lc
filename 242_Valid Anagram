@@ -73,8 +73,8 @@ class Solution {
             charCount[t.charAt(i) - 'a']--;
         }
 
-        for (Integer i : charCount) {
-            if (i != 0) {
+        for (Integer count : charCount) {
+            if (count != 0) {
                 return false;
             }
         }
