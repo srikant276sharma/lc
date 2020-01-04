@@ -1,0 +1,98 @@
+242. Valid Anagram
+https://leetcode.com/problems/valid-anagram/
+
+--Solution: 1
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        HashMap<Character, Integer> sMap = new HashMap<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            sMap.put(c, sMap.getOrDefault(c, 0) + 1);
+        }
+
+        for (int i = 0; i < t.length(); i++) {
+            char c = t.charAt(i);
+            if (sMap.getOrDefault(c, 0) > 0) {
+                sMap.put(c, sMap.get(c) - 1);
+            } else {
+                sMap.put(c, sMap.getOrDefault(c, 0) + 1);
+            }
+        }
+
+        for (Integer i : sMap.values()) {
+            if (i > 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+--
+Runtime: 18 ms, faster than 23.98% of Java online submissions for Valid Anagram.
+Memory Usage: 38.5 MB, less than 47.74% of Java online submissions for Valid Anagram.
+
+--Solution: 2
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+        char[] str1 = s.toCharArray();
+        char[] str2 = t.toCharArray();
+        Arrays.sort(str1);
+        Arrays.sort(str2);
+        return Arrays.equals(str1, str2);
+    }
+}
+--
+Runtime: 8 ms, faster than 33.78% of Java online submissions for Valid Anagram.
+Memory Usage: 37.2 MB, less than 96.77% of Java online submissions for Valid Anagram.
+
+Complexity analysis:
+Time complexity : O(nlogn). Assume that n is the length of s, sorting costs O(nlogn) and comparing two strings costs O(n). Sorting time dominates and the overall time complexity is O(nlogn).
+Space complexity : O(1). Space depends on the sorting implementation which, usually, costs O(1) auxiliary space if heapsort is used. 
+Note that in Java, toCharArray() makes a copy of the string so it costs O(n) extra space, but we ignore this for complexity analysis because:
+
+It is a language dependent detail.
+It depends on how the function is designed. For example, the function parameter types can be changed to char[].
+
+--Solution: 3
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) {
+            return false;
+        }
+
+        int[] charCount = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            charCount[s.charAt(i) - 'a']++;
+            charCount[t.charAt(i) - 'a']--;
+        }
+
+        for (Integer i : charCount) {
+            if (i != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+--
+Runtime: 4 ms, faster than 80.71% of Java online submissions for Valid Anagram.
+Memory Usage: 35.8 MB, less than 98.06% of Java online submissions for Valid Anagram.
+
+To examine if t is a rearrangement of s, we can count occurrences of each letter in the two strings and compare them.
+Since both s and t contain only letters from a−z, a simple counter table of size 26 is suffice.
+
+Do we need two counter tables for comparison? Actually no, because we could increment the counter for each letter in s and decrement the counter for each letter in t, 
+then check if the counter reaches back to zero.
+
+Complexity analysis
+Time complexity : O(n). Time complexity is O(n) because accessing the counter table is a constant time operation.
+Space complexity : O(1). Although we do use extra space, the space complexity is O(1) because the table's size stays constant no matter how large n is.
+--
+
