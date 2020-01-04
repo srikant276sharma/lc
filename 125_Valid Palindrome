@@ -2,6 +2,10 @@
 https://leetcode.com/problems/valid-palindrome/
 
 --Solution: 1
+1. At first, except alphanumeric characters remove all other characters.
+2. Change the case to either lower case or upper case.
+3. Use 2 pointer approach to check if it's a palindrome.
+--
 
 class Solution {
     public boolean isPalindrome(String s) {
