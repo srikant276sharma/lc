@@ -1,0 +1,30 @@
+38. Count and Say
+https://leetcode.com/problems/count-and-say/
+--
+class Solution {
+    public String countAndSay(int n) {
+        if (!(1 <= n && n <= 30))
+            return "";
+
+        String res = "1";
+
+        while (n > 1) {
+            StringBuilder cur = new StringBuilder();
+            for (int i = 0; i < res.length(); ++i) {
+                int count = 1;
+                while (i + 1 < res.length() && (res.charAt(i) == res.charAt(i + 1))) {
+                    ++count;
+                    ++i;
+                }
+                cur.append(count).append(res.charAt(i));
+            }
+            res = cur.toString();
+            --n;
+        }
+        return res;
+    }
+}
+--
+Runtime: 2 ms, faster than 69.55% of Java online submissions for Count and Say.
+Memory Usage: 34.2 MB, less than 100.00% of Java online submissions for Count and Say.
+--
