@@ -1,0 +1,90 @@
+19. Remove Nth Node From End of List
+https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+
+--Solution: 1
+    /**
+     * Definition for singly-linked list.
+     * public class ListNode {
+     * int val;
+     * ListNode next;
+     * ListNode(int x) { val = x; }
+     * }
+     */
+    class Solution {
+        public ListNode removeNthFromEnd(ListNode head, int n) {
+
+            ListNode node = head;
+            int len = 0;
+
+            /* Find the size of list by walking through entire list. */
+            while (node != null) {
+                len++;
+                node = node.next;
+            }
+
+            /* When Nth node is head of the list. */
+            if (n == len) {
+                return head.next;
+            } else {
+                /* Find the node which is just before the Nth node. */
+                node = head;
+                for (int i = 1; i <= len - n - 1; i++) {
+                    node = node.next;
+                }
+            }
+
+            /* Remove the Nth node. */
+            node.next = node.next.next;
+
+            return head;
+        }
+    }
+--
+Runtime: 0 ms, faster than 100.00% of Java online submissions for Remove Nth Node From End of List.
+Memory Usage: 36.6 MB, less than 100.00% of Java online submissions for Remove Nth Node From End of List.
+--
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+--Solution: 2
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        /* dummyHead is used to handle a scenario when Nth node is head node. */
+        ListNode dummyHead = new ListNode(0);
+        dummyHead.next = head;
+        
+        ListNode fast = dummyHead;
+        ListNode slow = dummyHead;
+        
+        /* Traverse till Nth + 1 node. */
+        for (int i = 1; i <= n + 1; i++) {
+            fast = fast.next;
+        }
+        
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        
+        /* Here slow points to the node which is just before the Nth node. */
+        slow.next = slow.next.next;
+        
+        return dummyHead.next;
+    }
+}
+--
+Runtime: 0 ms, faster than 100.00% of Java online submissions for Remove Nth Node From End of List.
+Memory Usage: 36.7 MB, less than 96.18% of Java online submissions for Remove Nth Node From End of List.
+--
+Time Complexity: O(n)
+Space Complexity: O(1)
+--
