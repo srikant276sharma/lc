@@ -45,7 +45,7 @@ Memory Usage: 40.4 MB, less than 5.44% of Java online submissions for Symmetric 
 --
 Complexity Analysis
 Time complexity : O(n). 
-Because we traverse the entire input tree once, the total run time is O(n), where nnn is the total number of nodes in the tree.
+Because we traverse the entire input tree once, the total run time is O(n), where n is the total number of nodes in the tree.
 
 Space complexity : The number of recursive calls is bound by the height of the tree. 
 In the worst case, the tree is linear and the height is in O(n). 
