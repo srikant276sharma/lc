@@ -32,6 +32,7 @@ class Solution {
 
     /* Returns a random shuffling of the array. */
     public int[] shuffle() {
+        /* Fisher-Yates shuffle algorithm.*/
         for (int i = 1; i < arr.length; i++) {
             /* the upper bound is (exclusive) so adding 1. */
             int randomIdx = random.nextInt(i + 1);
