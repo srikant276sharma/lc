@@ -21,7 +21,7 @@ class Solution {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 if (grid[i][j] == 2) {
-                    /* add rotten oranges to queue in the first level */
+                    /* add location of rotten oranges to queue in the first level */
                     queue.offer(new int[]{i, j});
                 }
                 if (grid[i][j] == 1) {
@@ -33,7 +33,7 @@ class Solution {
 
         /* this is basically number of levels in BFS / level order traversal */
         int mins = 0;
-        /* all the possible adjacent directions of a grid value */
+        /* all the possible adjacent directions of a grid value: Up, Down, Left, Right */
         int[][] directions = new int[][]{{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
         /* continue the BFS till there are no more valid fresh oranges that can rotten */
         while (!queue.isEmpty() && freshOranges > 0) {
@@ -50,7 +50,7 @@ class Solution {
                     }
                     /* mark the orange from fresh -> rotten */
                     grid[x][y] = 2;
-                    /* add the rotten orange to queue */
+                    /* add the location of rotten orange to queue */
                     queue.offer(new int[]{x, y});
                     freshOranges--;
                 }
