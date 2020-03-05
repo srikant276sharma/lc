@@ -2,6 +2,10 @@
 https://leetcode.com/problems/verifying-an-alien-dictionary/
 
 /*Solution 1.
+Example 1:
+Input: words = ["hello","leetcode"], order = "hlabcdefgijkmnopqrstuvwxyz"
+Output: true
+Explanation: As 'h' comes before 'l' in this language, then the sequence is sorted.
 */
 
 class Solution {
