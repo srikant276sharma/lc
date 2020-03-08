@@ -32,7 +32,7 @@ class Solution {
             }
         }
 
-		//Because of min-heap, orderedList will have elements in reverse order of frequency.
+	//Because of min-heap, orderedList will have elements in reverse order of frequency.
         List<Integer> orderedList = new ArrayList<>(minHeap);
         Collections.reverse(orderedList);
         return orderedList;
