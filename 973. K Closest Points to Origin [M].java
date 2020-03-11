@@ -9,6 +9,7 @@ class Solution {
     public int[][] kClosest(int[][] points, int K) {
         /*MaxHeap. */
         /*Euclidean distance: D = sqrt[ (x2 - x1)POW2 + (y2 - y1)POW2 ] */
+        /*In this case Origin is (0,0) so Dpow2 => (X-0) pow2 + (Y-0) pow2 => X pow2 + Y pow2 */
         PriorityQueue<int[]> maxHeap = new PriorityQueue<>((p1, p2) -> (p2[0] * p2[0] + p2[1] * p2[1]) - (p1[0] * p1[0] + p1[1] * p1[1]));
         for (int[] point : points) {
             maxHeap.add(point);
