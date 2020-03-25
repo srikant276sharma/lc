@@ -1,5 +1,6 @@
 64. Minimum Path Sum [M]
 https://leetcode.com/problems/minimum-path-sum/
+https://www.youtube.com/watch?v=ItjZdu6jEMs&list=PLi9RQVmJD2favxCtUriAN3VQtOwbl4izA&index=31
 
 /*Solution 1.
  Using Dynamic Programming.
@@ -21,8 +22,10 @@ class Solution {
                     /*Add min of Up and Left elements. */
                     dp[i][j] += Math.min(dp[i - 1][j], dp[i][j - 1]);
                 } else if (i > 0) {
+                    /*Add Up element. */
                     dp[i][j] += dp[i - 1][j];
                 } else if (j > 0) {
+                    /*Add Left element. */
                     dp[i][j] += dp[i][j - 1];
                 }
             }
