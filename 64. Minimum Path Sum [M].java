@@ -1,6 +1,6 @@
 64. Minimum Path Sum [M]
 https://leetcode.com/problems/minimum-path-sum/
-https://www.youtube.com/watch?v=ItjZdu6jEMs&list=PLi9RQVmJD2favxCtUriAN3VQtOwbl4izA&index=31
+Kevin: https://www.youtube.com/watch?v=ItjZdu6jEMs&list=PLi9RQVmJD2favxCtUriAN3VQtOwbl4izA&index=31
 
 /*Solution 1.
  Using Dynamic Programming.
