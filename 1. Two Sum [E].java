@@ -1,7 +1,9 @@
-1. Two Sum
+1. Two Sum [E]
 https://leetcode.com/problems/two-sum/
 
---Solution: 1
+/*
+Solution: 1
+*/
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         for (int i = 0; i < nums.length; i++) {
@@ -20,7 +22,9 @@ Time complexity: O(n^2). For each element, we try to find its complement by loop
                          Therefore, the time complexity is O(n^2).
 Space complexity : O(1).
 
---Solution: 2
+/*
+Solution: 2
+*/
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         HashMap<Integer, Integer> indexMap = new HashMap<>();
