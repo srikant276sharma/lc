@@ -42,7 +42,7 @@ class Solution {
 
 --
 Time complexity:  O(C), where C is the total content of emails.
-Space complexity :O(C).
+Space complexity: O(C).
 --
 Asked by: Google, Amazom, Adobe.
 --
