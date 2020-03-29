@@ -3,7 +3,7 @@ https://leetcode.com/problems/find-the-duplicate-number/
 
 /*Solution 1: Using Floyd's Cycle Detection Algorithm.
 - Intersection might not be the correct answer.
-  Example: [2, 5, 9, 6, 9, 3, 8, 9, 7, 1]
+  Example: [2, 5, 9, 6, 9, 3, 8, 9, 7, 1], here 7 is the intersecting value.
   
   Only the entry of the loop means that there are at least 2 pointers pointing to it.
 - The solution works because the input range is constrained to [1, n].
