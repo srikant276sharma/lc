@@ -30,8 +30,8 @@ class Solution {
 }
 
 --
-Time complexity:  O(n), where n is number of nodes in the Tree.
-Space complexity: O(n).
+Time complexity: O(N), where N is number of nodes in the tree, since one visits each node exactly once.
+Space complexity: O(log⁡(N)) in the best case of completely balanced tree and O(N) in the worst case of completely unbalanced tree, to keep a recursion stack. 
 --
 Asked by: Google, Amazon, Apple.
 --
