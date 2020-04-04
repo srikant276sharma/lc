@@ -34,5 +34,5 @@ class Solution {
 Time Complexity: O(n), where n is number of elements in the array.
 Space Complexity: O(1), Only constant space is used.
 --
-Asked by:
+Asked by: Google, Amazon, Adobe, Quora.
 --
