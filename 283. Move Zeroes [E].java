@@ -1,27 +1,30 @@
-283. Move Zeroes
+283. Move Zeroes [E]
 https://leetcode.com/problems/move-zeroes/
---
+Kevin: https://www.youtube.com/watch?v=1PEncepEIoE
+
+/* Solution 1:
+*/
+
 class Solution {
     public void moveZeroes(int[] nums) {
-        int k = 0;
+        int j = 0;
+
         /*At first, move all non-zero elements to the start of the array.*/
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != 0) {
-                nums[k] = nums[i];
-                k++;
+                nums[j++] = nums[i];
             }
         }
         /*Then set 0's after non-zero elements.*/
-        
-        // for (int i = k; i < nums.length; i++) {
-        //     nums[i] = 0;
-        // }
-        for (; k < nums.length; k++) {
-            nums[k] = 0;
+        while (j < nums.length) {
+            nums[j++] = 0;
         }
     }
 }
+
 --
-Complexity Analysis:
 Space Complexity: O(1). Only constant space is used.
 Time Complexity: O(n). The total operations (array writes) that code does is n (Total number of elements).
+--
+Asked by: Google, Facebook, Microsoft, SAP, Walmart Labs, Bloomberg.
+--
