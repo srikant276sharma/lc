@@ -4,7 +4,7 @@ Tushar: https://www.youtube.com/watch?v=CFQk7OQO_xM
 
 /* Solution 1:
 Using Dynamic Programming.
-Fornula: f(n) = f(n - 1) + f(n - 2)
+Formula: f(n) = f(n - 1) + f(n - 2)
 */
 
 class Solution {
