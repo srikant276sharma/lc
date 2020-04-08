@@ -1,4 +1,4 @@
-876. Middle of the Linked List
+876. Middle of the Linked List [E]
 https://leetcode.com/problems/middle-of-the-linked-list/
 
 /*
