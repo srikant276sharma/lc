@@ -1,4 +1,4 @@
-155. Min Stack
+155. Min Stack [E]
 https://leetcode.com/problems/min-stack/
 
 --Solution 1:
