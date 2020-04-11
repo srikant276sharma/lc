@@ -57,3 +57,4 @@ class MinStack {
 Time Complexity: O(1) for push(), pop(), top(), and getMin().
 Space Complexity: O(n) to store n Integers.
 --
+Asked by: Adobe, Amazon, Microsoft, Yahoo.
