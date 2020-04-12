@@ -22,6 +22,7 @@ class Solution {
         }
         /*MinHeap will contain at most K nodes. */
         PriorityQueue<ListNode> pq = new PriorityQueue<>((n1, n2) -> n1.val - n2.val);
+        /*Added only head of K lists. */
         for (ListNode node : lists) {
             if (node != null)
                 pq.add(node);
