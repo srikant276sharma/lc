@@ -16,7 +16,7 @@ class Solution {
             if (c == ')')
                 balance--;
             else
-                balance++;
+                balance++; //'(' or '*'
 
             if (balance < 0)
                 return false;
@@ -32,7 +32,7 @@ class Solution {
             if (s.charAt(i) == '(')
                 balance--;
             else
-                balance++;
+                balance++; //')' or '*'
 
             if (balance < 0)
                 return false;
