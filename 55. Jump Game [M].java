@@ -12,12 +12,16 @@ Rodney: https://leetcode.com/problems/jump-game/discuss/323971/O(N)-TIME-O(1)-JA
 
 class Solution {
     public boolean canJump(int[] nums) {
-        int reach = 0;
+        if (nums == null || nums.length == 0) {
+            return false;
+        }
 
-        for (int i = 0; i <= reach; i++) {
-            reach = Math.max(reach, i + nums[i]);
-            if (reach >= nums.length - 1)
+        int canReach = 0;
+        for (int i = 0; i <= canReach; i++) {
+            canReach = Math.max(canReach, i + nums[i]);
+            if (canReach >= nums.length - 1) {
                 return true;
+            }
         }
 
         return false;
