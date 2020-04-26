@@ -37,7 +37,7 @@ class Solution {
 --
 Complexities:
 Time: O(n^2).
-Space: O(n), to store rightSub, where n is the number is characters in the input string.
+Space: O(n), to store rightSub, where n is number of characters in the input string.
 --
 Asked by:
 --
