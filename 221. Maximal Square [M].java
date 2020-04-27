@@ -8,7 +8,6 @@ Knowledge Center: https://www.youtube.com/watch?v=Bw8ItQLw868&t=10s
 Time complexity: O(mn).
 Space complexity: O(mn).
 */
-
 class Solution {
     public int maximalSquare(char[][] matrix) {
         if (matrix == null || matrix.length == 0) {
@@ -27,8 +26,6 @@ class Solution {
                     if (matrix[i][j] == '1') {
                         dp[i][j] = 1;
                         maxSide = Math.max(maxSide, dp[i][j]);
-                    } else {
-                        dp[i][j] = 0;
                     }
                 } else {
                     if (matrix[i][j] == '1') {
