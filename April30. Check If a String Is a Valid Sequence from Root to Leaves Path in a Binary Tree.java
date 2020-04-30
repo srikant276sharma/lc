@@ -34,7 +34,7 @@ class Solution {
         if (root.val != arr[idx]) {
             return false;
         }
-
+        //If it's last index then the node must be a leaf node.
         if (idx == arr.length - 1) {
             return root.left == null && root.right == null;
         }
