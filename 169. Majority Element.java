@@ -1,4 +1,4 @@
-169. Majority Element
+169. Majority Element [E]
 https://leetcode.com/problems/majority-element/
 
 /*Solution 1.
@@ -59,5 +59,5 @@ class Solution {
 Time complexity: O(n) where n is the no. of elements in the array.
 Space complexity: O(1). Boyer-Moore allocates only constant additional memory.
 --
-Asked by: Google.
+Asked by: Google, Baidu.
 --
