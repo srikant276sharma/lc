@@ -24,15 +24,14 @@ class Solution {
     public int majorityElement(int[] nums) {
         /*Boyer-Moore Vote algorithm. */
         /*Step 1: Find a candidate for majority element. */
-        int candidate = 0;
-        int count = 0;
+        int candidate = 0, count = 0;
 
-        for (int i = 0; i < nums.length; i++) {
+        for (int i : nums) {
             if (count == 0) {
-                candidate = nums[i];
+                candidate = i;
                 count++;
             } else {
-                if (candidate == nums[i]) {
+                if (candidate == i) {
                     count++;
                 } else {
                     count--;
@@ -43,8 +42,8 @@ class Solution {
         /*Step 2: Check if the candidate is a majority element. */
         if (count > 0) {
             count = 0;
-            for (int i = 0; i < nums.length; i++) {
-                if (candidate == nums[i]) {
+            for (int i : nums) {
+                if (candidate == i) {
                     count++;
                 }
                 if (count > nums.length / 2) {
