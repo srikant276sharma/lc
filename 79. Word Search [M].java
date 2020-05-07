@@ -35,14 +35,14 @@ class Solution {
             return false;
         }
 
-        char temp = board[i][j];
-        board[i][j] = ' ';
+        char temp = board[i][j]; //Keep a backup of this cell value.
+        board[i][j] = ' '; //Execution will not use this cell twice.
         boolean found = dfs(board, word, index + 1, i - 1, j)
                 || dfs(board, word, index + 1, i + 1, j)
                 || dfs(board, word, index + 1, i, j - 1)
                 || dfs(board, word, index + 1, i, j + 1);
 
-        board[i][j] = temp;
+        board[i][j] = temp; //Restore the cell value.
         return found;
     }
 }
