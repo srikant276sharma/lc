@@ -25,6 +25,7 @@ class Solution {
     }
 
     private float getSlope(int[] p1, int[] p2) {
+        //If x2 and x1 are same then it's a vertical line, and in case of vertical line slope will be INF.
         if (p1[0] == p2[0]) {
             return 20001; //-10000 - (-10000) = 0 || 10000 - 10000 = 0, so use anything to represent INF.
         } else {
