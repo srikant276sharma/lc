@@ -2,7 +2,7 @@
 https://leetcode.com/problems/longest-palindromic-substring/submissions/
 
 /* Solution 1:
-Kousik: https://www.youtube.com/watch?v=DK5OKKbF6GI
+Koushik: https://www.youtube.com/watch?v=DK5OKKbF6GI
 
 Time complexity: O(n^2). Need to check.
 Space complexity: O(1).
