@@ -24,7 +24,7 @@ class Solution {
             sCharCounts[s.charAt(i) - 'a']++; //Increment the count of each character in s.
             pCharCounts[p.charAt(i) - 'a']++; //Increment the count of each character in p.
         }
-
+        //Start from pLen.
         for (int i = pLen; i < sLen; i++) {
             if (Arrays.equals(pCharCounts, sCharCounts)) {
                 anagramPositions.add(i - pLen);
