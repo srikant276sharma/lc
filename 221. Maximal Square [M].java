@@ -7,6 +7,9 @@ Knowledge Center: https://www.youtube.com/watch?v=Bw8ItQLw868&t=10s
 
 Time complexity: O(mn).
 Space complexity: O(mn).
+
+Similar problems:
+1277. Count Square Submatrices with All Ones [M]
 */
 class Solution {
     public int maximalSquare(char[][] matrix) {
