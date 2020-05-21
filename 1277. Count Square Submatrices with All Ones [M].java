@@ -30,7 +30,7 @@ class Solution {
                     }
                 } else {
                     if (matrix[i][j] == 1) {
-                        //Min among top, left and top left + 1.
+                        //Square count = Min among top, left and top left + 1.
                         dp[i][j] = Math.min(Math.min(dp[i - 1][j], dp[i][j - 1]), dp[i - 1][j - 1]) + 1;
                         squareCount += dp[i][j];
                     }
