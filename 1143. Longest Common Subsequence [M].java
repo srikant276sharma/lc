@@ -9,6 +9,9 @@ Knowledge Center: https://www.youtube.com/watch?v=i1u2ChnUvZM
 
 Time complexity: O(mn).
 Space complexity: O(mn).
+
+Similar:
+1035. Uncrossed Lines [M]
 */
 
 class Solution {
