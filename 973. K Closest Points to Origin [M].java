@@ -7,9 +7,13 @@ Using Max-heap.
 
 class Solution {
     public int[][] kClosest(int[][] points, int K) {
+        int[][] kClosestPts = new int[K][2];
+        if (points == null || points.length == 0) {
+            return kClosestPts;
+        }
         /*MaxHeap. */
-        /*Euclidean distance: D = sqrt[ (x2 - x1)POW2 + (y2 - y1)POW2 ] */
-        /*Distance between (X,Y) and Origin (0,0) is Dpow2 => (X-0) pow2 + (Y-0) pow2 => X pow2 + Y pow2 */
+        /*Euclidean distance: D = sqrt[ (x2 - x1)^2 + (y2 - y1)^2 ] */
+        /*Distance between (X,Y) and Origin (0,0) is D^2 => (X-0)^2 + (Y-0)^2 => X^2 + Y^2 */
         PriorityQueue<int[]> maxHeap = new PriorityQueue<>((p1, p2) -> (p2[0] * p2[0] + p2[1] * p2[1]) - (p1[0] * p1[0] + p1[1] * p1[1]));
         for (int[] point : points) {
             maxHeap.add(point);
@@ -18,11 +22,11 @@ class Solution {
             }
         }
 
-        int[][] result = new int[K][2];
-        while (K-- > 0) {
-            result[K] = maxHeap.poll();
+        for (int i = 0; i < K; i++) {
+            kClosestPts[i] = maxHeap.poll();
         }
-        return result;
+
+        return kClosestPts;
     }
 }
 
