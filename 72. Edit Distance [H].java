@@ -24,7 +24,7 @@ class Solution {
                 } else if (j == 0) { //First column.
                     dp[i][j] = i;
                 } else if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
-                    //if both characters match then don't make any change in the Edit distance.
+                    //if both characters match then don't make any change in the Edit distance. Same as top left value.
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
                     //1 + Min of [ top left (replace), top (insert), left (delete) ].
