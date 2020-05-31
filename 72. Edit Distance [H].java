@@ -27,7 +27,7 @@ class Solution {
                     //if both characters match then don't make any change in the Edit distance.
                     dp[i][j] = dp[i - 1][j - 1];
                 } else {
-                    //top left (replace), top (insert), left (delete)
+                    //1 + Min of [ top left (replace), top (insert), left (delete) ].
                     dp[i][j] = 1 + Math.min(Math.min(dp[i - 1][j], dp[i][j - 1]), dp[i - 1][j - 1]);
                 }
             }
