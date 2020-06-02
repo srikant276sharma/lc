@@ -1,4 +1,4 @@
-237. Delete Node in a Linked List
+237. Delete Node in a Linked List [E]
 https://leetcode.com/problems/delete-node-in-a-linked-list/
 
 /**
@@ -19,6 +19,4 @@ class Solution {
 Complexity Analysis:
 Time and space complexity are both O(1).
 --
-Runtime: 0 ms, faster than 100.00% of Java online submissions for Delete Node in a Linked List.
-Memory Usage: 37 MB, less than 100.00% of Java online submissions for Delete Node in a Linked List.
---
+
