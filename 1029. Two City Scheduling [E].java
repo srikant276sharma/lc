@@ -19,10 +19,10 @@ class Solution {
         int minCost = 0, len = costs.length;
 
         for (int i = 0; i < len / 2; i++) {
-            minCost += costs[i][0];
+            minCost += costs[i][0]; //sending to city A.
         }
         for (int i = len / 2; i < len; i++) {
-            minCost += costs[i][1];
+            minCost += costs[i][1]; //sending to city B.
         }
 
         return minCost;
