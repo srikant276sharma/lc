@@ -20,7 +20,7 @@ TC: O(n) where n is the number of Characters.
 SC: O(n).
 */
 
-class Solution2 {
+class Solution {
     public String removeVowels(String s) {
         Set<Character> vowels = new HashSet<>();
         vowels.add('a');
