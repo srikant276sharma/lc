@@ -1,6 +1,7 @@
-1119. Remove Vowels from a String.
+1119. Remove Vowels from a String [E]
 https://leetcode.com/problems/remove-vowels-from-a-string/
 
+/*
 Company: Amazon.
 
 Given a string s, remove the vowels 'a', 'e', 'i', 'o' and 'u' from it, and return the new string.
@@ -12,8 +13,12 @@ Output: "ltcdscmmntyfrcdrs"
 Example 2:
 Input: "aeiou"
 Output: ""
+*/
 
---Solution 1:
+/*Solution 1:
+TC: O(n) where n is the number of Characters.
+SC: O(n).
+*/
 
 class Solution2 {
     public String removeVowels(String s) {
@@ -33,7 +38,3 @@ class Solution2 {
         return result.toString();
     }
 }
---
-Time Complexity: O(n) where n is the number of Characters.
-Space Complexity: O(n).
---
