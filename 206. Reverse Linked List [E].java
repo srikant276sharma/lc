@@ -1,4 +1,4 @@
-206. Reverse Linked List
+206. Reverse Linked List [E]
 https://leetcode.com/problems/reverse-linked-list/
 
 /*Solution: 1
@@ -8,6 +8,9 @@ change the current node's next pointer to point to its previous element.
 Since a node does not have reference to its previous node, you must store its previous element beforehand. 
 You also need another pointer to store the next node before changing the reference. 
 Do not forget to return the new head reference at the end! */
+
+TC: O(n). Assume that n is the list's length, the time complexity is O(n).
+SC: O(1).
 
 /**
  * Definition for singly-linked list.
@@ -20,23 +23,14 @@ Do not forget to return the new head reference at the end! */
 class Solution {
     public ListNode reverseList(ListNode head) {
         ListNode cur = head;
-        ListNode nextN = null;
-        ListNode prevN = null;
-        
+        ListNode prevNode = null;
+
         while (cur != null) {
-            nextN = cur.next; //Store current node's next node as backup for next iteration.
-            cur.next = prevN; //Set previous node as current node's next node.
-            prevN = cur; //Set current node as previous node for next iteration.
-            cur = nextN; //Iterate to next node.
+            ListNode tempNext = cur.next; //Store cur.next as backup for next iteration.
+            cur.next = prevNode; //Set prevNode as current node's next node.
+            prevNode = cur; //Set current node as prevNode for next iteration.
+            cur = tempNext; //Iterate to next node.
         }
-        return prevN; //Return new head.
+        return prevNode; //Return new head.
     }
 }
---
-Complexity analysis
-Time complexity : O(n). Assume that nn is the list's length, the time complexity is O(n).
-Space complexity : O(1).
---
-Runtime: 0 ms, faster than 100.00% of Java online submissions for Reverse Linked List.
-Memory Usage: 37.5 MB, less than 96.40% of Java online submissions for Reverse Linked List.
---
