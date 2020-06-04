@@ -21,20 +21,22 @@ SC: O(n).
 */
 
 class Solution {
-    public String removeVowels(String s) {
+    public String removeVowels(String S) {
         Set<Character> vowels = new HashSet<>();
         vowels.add('a');
         vowels.add('e');
         vowels.add('i');
         vowels.add('o');
         vowels.add('u');
-
-        StringBuilder result = new StringBuilder();
-        for (Character c : s.toCharArray()) {
-            if (!vowels.contains(c)) {
-                result.append(c);
+        
+        StringBuilder sb = new StringBuilder();
+        for (char c : S.toCharArray()) {
+            if (vowels.contains(c)) {
+                continue;
             }
+            sb.append(c);
         }
-        return result.toString();
+        
+        return sb.toString();
     }
 }
