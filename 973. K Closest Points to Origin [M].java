@@ -3,6 +3,14 @@ https://leetcode.com/problems/k-closest-points-to-origin/
 
 /*Solution 1.
 Using Max-heap.
+
+TC: O(n log k) where n is the no. of distinct elements in the array and k is the closest point count.
+ Each element is processed in O(log k) time, which is the time to add or to remove the maximum element from the heap.
+ Therefore, if there are n distinct elements in the input, the TC to process all of them is O(n log k).
+
+SC: O(k) to store k elements in the Max-heap.
+
+Asked by: Amazon, Google, Facebook.
 */
 
 class Solution {
@@ -29,13 +37,3 @@ class Solution {
         return kClosestPts;
     }
 }
-
---
-Time complexity: O(n log k) where n is the no. of distinct elements in the array and k is the closest point count.
- Each element is processed in O(log k) time, which is the time to add or to remove the maximum element from the heap.
- Therefore, if there are n distinct elements in the input, the TC to process all of them is O(n log k).
-
-Space complexity: O(k) to store k elements in the Max-heap.
---
-Asked by: Amazon, Google, Facebook.
---
