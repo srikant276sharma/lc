@@ -32,7 +32,7 @@ class Solution {
 
     public int pickIndex() {
         int randomVal = (int) (Math.random() * sum); //Most important logic. Never forget ().
-        return binarySearch(randomVal + 1);
+        return binarySearch(randomVal + 1); //because weight starts from 1 so adding 1.
     }
 
     private int binarySearch(int randomVal) {
