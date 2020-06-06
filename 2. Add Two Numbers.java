@@ -1,9 +1,7 @@
-2. Add Two Numbers
+2. Add Two Numbers [M]
 https://leetcode.com/problems/add-two-numbers/
 
---Solution 1:
-
-/*
+/* Solution 1:
 Intuition:
 Keep track of the carry using a variable and simulate digits-by-digits sum starting from the head of list, which contains the least-significant digit.
 
@@ -38,8 +36,10 @@ l2=[0,1] 	When one list is null, which means an empty list.
 l1=[9,9]
 l2=[1] 	    The sum could have an extra carry of one at the end, which is easy to forget.
 
-*/
+TC: O(max⁡(m,n)). Assume that m and n represents the length of l1 and l2 respectively, the algorithm above iterates at most max⁡(m,n) times.
+SC: O(max⁡(m,n)). The length of the new list is at most max⁡(m,n)+1.
 
+*/
 
 class ListNode {
     int val;
@@ -52,34 +52,29 @@ class ListNode {
 
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(0);
-        ListNode p = l1,
-                q = l2,
-                curr = dummy;
+        ListNode dummy = new ListNode(-1);
+        ListNode cur = dummy, p = l1, q = l2;
         int carry = 0;
 
         while (p != null || q != null) {
-            int x = (p != null) ? p.val : 0;
-            int y = (q != null) ? q.val : 0;
-            int sum = carry + x + y;
-            carry = sum / 10;
-            curr.next = new ListNode(sum % 10);
-            curr = curr.next;
+            int sum = carry;
             if (p != null) {
+                sum += p.val;
                 p = p.next;
             }
             if (q != null) {
+                sum += q.val;
                 q = q.next;
             }
+
+            carry = sum / 10;
+            cur.next = new ListNode(sum % 10);
+            cur = cur.next;
         }
+
         if (carry > 0) {
-            curr.next = new ListNode(carry);
+            cur.next = new ListNode(carry);
         }
         return dummy.next;
     }
 }
---
-Complexity Analysis
-Time complexity : O(max⁡(m,n)). Assume that m and n represents the length of l1 and l2 respectively, the algorithm above iterates at most max⁡(m,n) times.
-Space complexity : O(max⁡(m,n)). The length of the new list is at most max⁡(m,n)+1.
---
