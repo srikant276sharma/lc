@@ -7,6 +7,11 @@ Using DFS.
 Algorithm:
  Loop through our char[][] grid, and for each piece of land we see (a 1), we mark all the land it's connected to.
  We mark land by setting true in visited array.
+ 
+TC: O(Rows * Cols)
+SC: O(Rows * Cols) due to Recursion.
+
+Asked by: Amazon, Facebook, Lyft, Uber, LinkedIn, Google, Microsoft, Bloomberg, Alibaba, Apple, eBay, Oracle, Adobe, Qualtrics, AppDynamics.
 */
 
 class Solution {
@@ -22,7 +27,7 @@ class Solution {
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-							  /*Check: water and visited cell. */
+		/*Check: water and visited cell. */
                 if (grid[i][j] == '0' || visited[i][j]) {
                     continue;
                 }
@@ -35,7 +40,7 @@ class Solution {
     }
 
     private void dfs(char[][] grid, int i, int j, boolean[][] visited) {
-			  /*Check: Edge cases, water and visited cell. */
+        /*Check: Edge cases, water and visited cell. */
         if (i < 0 || i >= grid.length || j < 0 || j >= grid[i].length || grid[i][j] == '0' || visited[i][j]) {
             return;
         }
@@ -46,10 +51,3 @@ class Solution {
         dfs(grid, i, j - 1, visited); //Left.
     }
 }
-
---
-Time complexity: O(Rows * Cols)
-Space complexity: O(Rows * Cols) due to Recursion.
---
-Asked by: Amazon, Facebook, Lyft, Uber, LinkedIn, Google, Microsoft, Bloomberg, Alibaba, Apple, eBay, Oracle, Adobe, Qualtrics, AppDynamics.
---
