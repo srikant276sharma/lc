@@ -1,8 +1,48 @@
-347. Top K Frequent Elements
+347. Top K Frequent Elements [M]
 https://leetcode.com/problems/top-k-frequent-elements/
 
-/*Solution 1.
-Using Min-heap.
+/* Solution 3: Using MinHeap.
+
+TC: O(n log k) where n is the no. of distinct elements in the array and k is the top element count.
+ Each integer is processed in O(log k) time, which is the time to add or to remove the minimum element from the heap.
+ Therefore, if there are n integers in the input, the TC to process all of them is O(n log k).
+SC: O(k) to store k distinct elements.
+
+Asked by:
+*/
+
+class Solution {
+    public int[] topKFrequent(int[] nums, int k) {
+        //map to store number frequency.
+        Map<Integer, Integer> numFrequency = new HashMap<>();
+
+        //TC: O(n), SC: O(n)
+        for (int i : nums) {
+            numFrequency.put(i, numFrequency.getOrDefault(i, 0) + 1);
+        }
+
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>((n1, n2) -> numFrequency.get(n1) - numFrequency.get(n2));
+        //TC: O(n log k), SC: O(k)
+        for (int num : numFrequency.keySet()) {
+            minHeap.add(num);
+            if (minHeap.size() > k) {
+                minHeap.poll();
+            }
+        }
+
+        //SC: O(k)
+        int[] res = new int[k];
+        int i = 0;
+        //TC: O(k log k)
+        while (!minHeap.isEmpty()) {
+            res[i++] = minHeap.poll();
+        }
+
+        return res;
+    }
+}
+
+/*Solution 1: Using Min-heap. Return type: List.
 */
 
 class Solution {
@@ -40,16 +80,7 @@ class Solution {
     }
 }
 
---
-Time complexity: O(n log k) where n is the no. of distinct elements in the array and k is the top element count.
- Each integer is processed in O(log k) time, which is the time to add or to remove the minimum element from the heap.
- Therefore, if there are n integers in the input, the TC to process all of them is O(n log k).
-
-Space complexity: O(k) to store k distinct elements.
---
-
-/*Solution 2.
-Using Max-heap.
+/*Solution 2: Using Max-heap. Return type: List.
 */
 
 class Solution {
@@ -73,7 +104,3 @@ class Solution {
         return result;
     }
 }
-
---
-Asked by: .
---
