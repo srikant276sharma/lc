@@ -1,8 +1,15 @@
 215. Kth Largest Element in an Array [M]
 https://leetcode.com/problems/kth-largest-element-in-an-array/
 
-/*Solution 1.
-Using Min-heap.
+/*Solution 1: Using Min-heap.
+
+TC: O(n log k) where n is no. of elements in the array and k is size of Min-heap.
+ Each element is processed in O(log k) time, which is the time to add or to remove the minimum element from the heap.
+ Therefore, if there are n elements in the input, the TC to process all of them is O(n log k).
+
+SC: O(k) to store k elements in the Min-heap.
+
+Asked by: Google.
 */
 
 class Solution {
@@ -24,13 +31,3 @@ class Solution {
         return minHeap.peek();
     }
 }
-
---
-Time complexity: O(n log k) where n is no. of elements in the array and k is size of Min-heap.
- Each element is processed in O(log k) time, which is the time to add or to remove the minimum element from the heap.
- Therefore, if there are n elements in the input, the TC to process all of them is O(n log k).
-
-Space complexity: O(k) to store k elements in the Min-heap.
---
-Asked by: Google.
---
