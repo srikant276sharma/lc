@@ -1,41 +1,31 @@
 733. Flood Fill [E]
 https://leetcode.com/problems/flood-fill/
 
-/*Solution 1.
-Using DFS (Recursive approach).
+/* Solution 1: Using DFS (Recursive approach).
+
+TC: O(N), where N is the number of pixels in the image. We might process every pixel.
+SC: O(N), the size of the implicit call stack when calling dfs().
+
+Asked by: Amazon
 */
 
 class Solution {
-    int startingPixelColor;
-    int newClr;
-
     public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
-        if (image == null || image.length == 0) {
-            return image;
-        }
-        startingPixelColor = image[sr][sc];
-        if (startingPixelColor != newColor) {
-            newClr = newColor;
-            fill(image, sr, sc);
+        int startingColor = image[sr][sc];
+        if (startingColor != newColor) {
+            dfs(image, sr, sc, newColor, startingColor);
         }
         return image;
     }
 
-    private void fill(int[][] image, int r, int c) {
-        if (r < 0 || r >= image.length || c < 0 || c >= image[r].length || image[r][c] != startingPixelColor) {
+    private void dfs(int[][] image, int r, int c, int newColor, int startingColor) {
+        if (r < 0 || r >= image.length || c < 0 || c >= image[0].length || image[r][c] != startingColor) {
             return;
         }
-        image[r][c] = newClr;
-        fill(image, r - 1, c); //Up.
-        fill(image, r + 1, c); //Down.
-        fill(image, r, c - 1); //Left.
-        fill(image, r, c + 1); //Right.
+        image[r][c] = newColor;
+        dfs(image, r + 1, c, newColor, startingColor);
+        dfs(image, r - 1, c, newColor, startingColor);
+        dfs(image, r, c + 1, newColor, startingColor);
+        dfs(image, r, c - 1, newColor, startingColor);
     }
 }
-
---
-Time Complexity: O(N), where N is the number of pixels in the image. We might process every pixel.
-Space Complexity: O(N), the size of the implicit call stack when calling fill().
---
-Asked by: Amazon.
---
