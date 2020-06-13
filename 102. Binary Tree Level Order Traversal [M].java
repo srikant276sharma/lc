@@ -2,7 +2,7 @@
 https://leetcode.com/problems/binary-tree-level-order-traversal/
  
 /* Solution 1: Using Breadth First Search.
-The video to explain this code is here: https://www.youtube.com/watch?v=gcR28Hc2TNQ */
+The video to explain this code is here: https://www.youtube.com/watch?v=gcR28Hc2TNQ 
 
 TC: O(n).
 SC: O(n).
