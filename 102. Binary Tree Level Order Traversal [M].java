@@ -1,8 +1,12 @@
-102. Binary Tree Level Order Traversal
+102. Binary Tree Level Order Traversal [M]
 https://leetcode.com/problems/binary-tree-level-order-traversal/
+ 
+/* Solution 1: Using Breadth First Search.
+The video to explain this code is here: https://www.youtube.com/watch?v=gcR28Hc2TNQ */
 
---Solution: 1 : 
-/* The video to explain this code is here: https://www.youtube.com/watch?v=gcR28Hc2TNQ */
+TC: O(n).
+SC: O(n).
+*/
 
 /**
  * Definition for a binary tree node.
@@ -53,11 +57,3 @@ class Solution {
         return levelsList;
     }
 }
-
---
-Runtime: 1 ms, faster than 76.91% of Java online submissions for Binary Tree Level Order Traversal.
-Memory Usage: 42.6 MB, less than 5.33% of Java online submissions for Binary Tree Level Order Traversal.
---
-Time Complexity: O(n).
-Space Complexity: O(n).
---
