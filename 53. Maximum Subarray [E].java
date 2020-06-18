@@ -1,11 +1,15 @@
 53. Maximum Subarray [E]
 https://leetcode.com/problems/maximum-subarray/
+
+/*Solution 1: Using Dynamic programming.
 B2B: https://www.youtube.com/watch?v=2MmGzdiKR9Y
      https://github.com/bephrem1/backtobackswe/blob/master/Dynamic%20Programming%2C%20Recursion%2C%20%26%20Backtracking/MaxContiguousSubarraySum/LinearTime.java
-RodneyShag: https://leetcode.com/problems/maximum-subarray/discuss/329089/O(N)-TIME-O(1)-SPACE-JAVA-SOLUTION     
+RodneyShag: https://leetcode.com/problems/maximum-subarray/discuss/329089/O(N)-TIME-O(1)-SPACE-JAVA-SOLUTION  
 
-/*Solution 1: 
-  Using Dynamic programming.
+TC: O(N), where N is number of elements in the array.
+SC: O(1).
+
+Asked by:
 */
 
 class Solution {
@@ -22,13 +26,7 @@ class Solution {
     }
 }
 
-/*
-* B2B Code:
-*/
-
-/*
-  This repository is no longer actively maintained. To find all solutions
-  to this problem (and practice coding more problems) at:
+/* B2B Code:
   ~~~~~~~~~~~~~~~~~~~~~~~~~
   https://backtobackswe.com
   ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -88,10 +86,3 @@ class Solution {
     return maxSoFar;
   }
 }
-
---
-Time complexity:  O(N), where N is number of elements in the array.
-Space complexity: O(1).
---
-Asked by:
---
