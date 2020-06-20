@@ -1,11 +1,15 @@
-994. Rotting Oranges
+994. Rotting Oranges [M]
 https://leetcode.com/problems/rotting-oranges/
 
-/*Solution 1.
-classic BFS: 
+/*Solution 1. classic BFS: 
 keep adding rotten oranges at each level 
 and for every rotten orange, modify its adjacent fresh oranges to rotten 
 and keep adding them to queue till there are no more rotten oranges.
+
+TC: O(n) where n is the number of cells in the grid.
+SC: O(n) for queue space.
+
+Asked by: Amazon, Flipkart.
 */
 
 class Solution {
@@ -62,10 +66,3 @@ class Solution {
         return freshOranges == 0 ? mins : -1;
     }
 }
-
---
-Time complexity: O(n) where n is the number of cells in the grid.
-Space complexity: O(n) for queue space.
---
-Asked by: Amazon, Flipkart.
---
