@@ -1,8 +1,12 @@
-21. Merge Two Sorted Lists
+21. Merge Two Sorted Lists [E]
 https://leetcode.com/problems/merge-two-sorted-lists/
 
---Solution: 1
-/**
+/** Solution 1:
+
+If l1.length = m and l2.length = n then 
+TC: O(m+n)
+SC: O(1)
+
  * Definition for singly-linked list.
  * public class ListNode {
  *     int val;
@@ -10,6 +14,7 @@ https://leetcode.com/problems/merge-two-sorted-lists/
  *     ListNode(int x) { val = x; }
  * }
  */
+
 class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         
@@ -40,12 +45,3 @@ class Solution {
         return dummy.next;
     }
 }
---
-Runtime: 0 ms, faster than 100.00% of Java online submissions for Merge Two Sorted Lists.
-Memory Usage: 36.5 MB, less than 100.00% of Java online submissions for Merge Two Sorted Lists.
---
-Complexity analysis:
-If l1.length = m and l2.length = n then 
-Time: O(m+n)
-Space: O(1)
---
