@@ -1,7 +1,11 @@
-20. Valid Parentheses
+20. Valid Parentheses [E]
 https://leetcode.com/problems/valid-parentheses/
 
---Solution 1:
+/*Solution 1: Using Stack.
+
+TC: O(n).
+SC: O(n).
+*/
 
 class Solution {
     public boolean isValid(String s) {
@@ -11,7 +15,9 @@ class Solution {
         if (s.length() % 2 != 0) {
             return false;
         }
+
         Stack<Character> stack = new Stack<>();
+        
         for (Character c : s.toCharArray()) {
             if (c == '(' || c == '{' || c == '[') {
                 stack.push(c);
@@ -26,10 +32,3 @@ class Solution {
         return stack.isEmpty();
     }
 }
---
-Runtime: 1 ms, faster than 98.61% of Java online submissions for Valid Parentheses.
-Memory Usage: 37.9 MB, less than 5.06% of Java online submissions for Valid Parentheses.
---
-Time complexity: O(n).
-Space complexity: O(n).
---
