@@ -33,6 +33,7 @@ class Solution {
 }
 
 /* Solution 2: Using (Total nodes = 2^Height of Complete Binary Tree - 1).
+KC: https://www.youtube.com/watch?v=i_r2uKbwHCU
 
 TC: O(n), where n is the number of nodes in the tree.
 SC: O(1).
