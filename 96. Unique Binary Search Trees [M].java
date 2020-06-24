@@ -10,7 +10,7 @@ SC: O(n).
 
 class Solution {
     public int numTrees(int n) {
-        int[] dp = new int[n + 1];
+        int[] dp = new int[n + 1]; //we're considering 0 as well, so added 1.
         dp[0] = 1;
         dp[1] = 1;
 
