@@ -13,7 +13,7 @@ https://leetcode.com/problems/find-the-duplicate-number/
 TC: O(n) where n is the number of elements in the array.
 SC: O(1).
 
-Asked by: Amazom, VMWare, Riverbed.
+Asked by: 4.
 */
 
 class Solution {
