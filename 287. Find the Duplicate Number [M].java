@@ -9,6 +9,11 @@ https://leetcode.com/problems/find-the-duplicate-number/
 - The solution works because the input range is constrained to [1, n].
   If it is [0, n] then it won't work
   Example: [2, 3, 0, 3, 3] => 2->0->2->0... Duplicate number 3 will never be reached.
+  
+TC: O(n) where n is the number of elements in the array.
+SC: O(1).
+
+Asked by: Amazom, VMWare, Riverbed.
 */
 
 class Solution {
@@ -33,10 +38,3 @@ class Solution {
         return ptr1;
     }
 }
-
---
-Time complexity:  O(n) where n is the number of elements in the array.
-Space complexity: O(1).
---
-Asked by: Amazom, VMWare, Riverbed.
---
