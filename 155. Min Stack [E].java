@@ -1,14 +1,18 @@
 155. Min Stack [E]
 https://leetcode.com/problems/min-stack/
 
---Solution 1:
-/**
+/** Solution 1: Using stack and minStack.
 Assumptions:
 Since problem statement isn't clear on what to do when our stack is empty, we have to make the following assumptions:
 1. top() will never be called on an empty stack
 2. getMin() will never be called on an empty stack
+
+TC: O(1) for push(), pop(), top(), and getMin().
+SC: O(n) to store n Integers.
+
+Asked by: 4.
 */
---
+
 class MinStack {
     Stack<Integer> primary, minStack;
 
@@ -52,9 +56,3 @@ class MinStack {
  * int param_3 = obj.top();
  * int param_4 = obj.getMin();
  */
-
---
-Time Complexity: O(1) for push(), pop(), top(), and getMin().
-Space Complexity: O(n) to store n Integers.
---
-Asked by: Adobe, Amazon, Microsoft, Yahoo.
