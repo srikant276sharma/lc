@@ -1,6 +1,12 @@
-48. Rotate Image.
+48. Rotate Image [M]
 https://leetcode.com/problems/rotate-image/
---
+
+/* First transpose the matrix and then swap row wise.
+
+TC: O(N^2), where N is the number of rows in the matrix.
+SC: O(1).
+*/
+
 class Solution {
     public void rotate(int[][] matrix) {
 
@@ -26,4 +32,3 @@ class Solution {
         }
     }
 }
---
