@@ -8,6 +8,9 @@ Kevin: https://www.youtube.com/watch?v=1R0_7HqNaW0
 
 Time complexity: O(amount * coins).
 Space complexity: O(amount).
+
+Similar:
+ 279. Perfect Squares
 */
 
 class Solution {
