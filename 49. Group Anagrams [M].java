@@ -42,33 +42,35 @@ Using int[] array to store character count and map.
 
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
-        if (strs == null || strs.length == 0) {
+        if (strs.length == 0) {
             return new ArrayList<>();
         }
 
-        HashMap<String, List<String>> map = new HashMap<>();
-        int[] charCounts = new int[26];
+        int[] charFreqArr = new int[26];
+        StringBuilder sb;
+        Map<String, List<String>> map = new HashMap<>();
 
-        for (String current : strs) {
-            Arrays.fill(charCounts, 0);
-            /*for "abbccc", charCounts will have values like, 12300000000000000000000000 */
-            for (char c : current.toCharArray()) {
-                charCounts[c - 'a']++;
+        //TC: O(N), N is number of Strings.
+        for (String str : strs) {
+            //TC: O(K), K is max length of a String.
+            //for "abbccc", charFreqArr will have values like, 12300000000000000000000000 */
+            for (char c : str.toCharArray()) {
+                charFreqArr[c - 'a']++;
             }
 
-            /*for "abbccc", sorted will be like, 12300000000000000000000000 */
-            StringBuilder sb = new StringBuilder();
-            for (int i : charCounts) {
+            sb = new StringBuilder();
+            //TC: O(26).
+            for (int i : charFreqArr) {
                 sb.append(i);
             }
-            String sorted = sb.toString();
-
-            /*for "abbccc", map will have values like,          12300000000000000000000000 : abbccc */
-            /*for "abbc" and "bbac", map will have values like, 12100000000000000000000000 : abbc, bbac */
-            if (!map.containsKey(sorted)) {
-                map.put(sorted, new ArrayList<>());
-            }
-            map.get(sorted).add(current);
+            //for "abbccc", key will be like, 12300000000000000000000000 */
+            String key = sb.toString();
+            //for "abbccc", map will have values like,          12300000000000000000000000 : abbccc */
+            //for "abbc" and "bbac", map will have values like, 12100000000000000000000000 : abbc, bbac */
+            map.putIfAbsent(key, new ArrayList<>());
+            map.get(key).add(str); //SC: O(N * K).
+            //TC: O(26).
+            Arrays.fill(charFreqArr, 0);
         }
 
         return new ArrayList<>(map.values());
