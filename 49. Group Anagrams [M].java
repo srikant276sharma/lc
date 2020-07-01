@@ -1,9 +1,15 @@
 49. Group Anagrams [M]
 https://leetcode.com/problems/group-anagrams/
+
+/* Solution 1: Using String sorting and map.
 Kevin: https://www.youtube.com/watch?v=ptgykfAEax8
 
-/* Solution 1:
-Using String sorting and map.
+TC: O(NKlog⁡K), where N is the length of strs, and K is the maximum length of a string in strs. 
+    The outer loop has complexity O(N) as we iterate through each string. 
+    Then, we sort each string in O(Klog⁡K) time.
+SC: O(NK), the total information content stored in map.
+
+Asked by: Amazon, Google, Uber, Facebook, Bloomberg, Golaman Sachs, Yahoo, Microsoft, Apple, Walmart Labs, Twilio, Affirm.
 */
 
 class Solution {
@@ -29,15 +35,11 @@ class Solution {
     }
 }
 
---
-Time Complexity: O(NKlog⁡K), where N is the length of strs, and K is the maximum length of a string in strs. 
-                 The outer loop has complexity O(N) as we iterate through each string. 
-                 Then, we sort each string in O(Klog⁡K) time.
-Space Complexity: O(NK), the total information content stored in map.
---
+/* Solution 2: Using int[] array to store character count and map.
 
-/* Solution 2:
-Using int[] array to store character count and map.
+TC: O(NK), where N is the length of strs, and K is the maximum length of a string in strs. 
+           Counting each string is linear in the size of the string, and we count every string.
+SC: O(NK), the total information content stored in ans.
 */
 
 class Solution {
@@ -76,11 +78,3 @@ class Solution {
         return new ArrayList<>(map.values());
     }
 }
-
---
-Time Complexity: O(NK), where N is the length of strs, and K is the maximum length of a string in strs. 
-                 Counting each string is linear in the size of the string, and we count every string.
-Space Complexity: O(NK), the total information content stored in ans.
---
-Asked by: Amazon, Google, Uber, Facebook, Bloomberg, Golaman Sachs, Yahoo, Microsoft, Apple, Walmart Labs, Twilio, Affirm.
---
