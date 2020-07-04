@@ -15,6 +15,7 @@ class Solution {
         for (int i = 0; i < N; i++) {
             String curState = Arrays.toString(cells);
             if (cellsState.containsKey(curState)) {
+            //(In case of 0 Index) Day1 cell state matches with Day15 cell state. So, cycle length = 15 - 1 = 14.
                 int cycleLen = i - cellsState.get(curState);
                 int remainingDays = (N - i) % cycleLen;
                 return prisonAfterNDays(cells, remainingDays);
