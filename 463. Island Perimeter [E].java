@@ -5,6 +5,9 @@ https://leetcode.com/problems/island-perimeter/
 Algorithm:
 If Upper neighbour is 1 then there is a common border between them so subtracting 2.
 If Left neighbour is 1 then there is a common border between them so subtracting 2.
+
+TC: O(Rows * Cols)
+SC: O(1).
 */
 
 class Solution {
@@ -69,10 +72,3 @@ class Solution {
         return count;
     }
 }
-
---
-Time complexity: O(Rows * Cols)
-Space complexity: O(1).
---
-Asked by:
---
