@@ -1,6 +1,13 @@
 146. LRU Cache [M]
 https://leetcode.com/problems/lru-cache/
 
+/*
+TC: O(1).
+SC: O(n), where n is equal to capacity.
+
+Asked by: Microsoft, Adobe, Citigroup, Amazon.
+*/
+
 /* Solution 1:
 Using LinkedHashMap.
 Knowledge Center: https://www.youtube.com/watch?v=iEmActx7dYc&t=1563s
@@ -133,11 +140,3 @@ class LRUCache {
  * int param_1 = obj.get(key);
  * obj.put(key,value);
  */
-
---
-Complexities:
-Time: O(1).
-Space: O(n), where n is equal to capacity.
---
-Asked by: Microsoft, Adobe, Citigroup, Amazon.
---
