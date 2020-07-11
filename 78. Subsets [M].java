@@ -1,11 +1,36 @@
 78. Subsets [M]
 https://leetcode.com/problems/subsets/
 
-/* Solution 1: Using Backtracking.
+/* Solution 1: Using Cascading.
+KC: https://www.youtube.com/watch?v=1BbeOUkUOak&t=14s
+
+TC: O(N × 2^N) to generate all subsets and then copy them into output list.
+SC: O(N × 2^N) to keep all the subsets of length N, since each of N elements could be present or absent.
+*/
+
+class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> subsets = new ArrayList<>();
+        subsets.add(new ArrayList<>()); //adding empty list.
+
+        for (int num : nums) {
+            int size = subsets.size();
+            for (int i = 0; i < size; i++) {
+                ArrayList<Integer> newSubset = new ArrayList<>(subsets.get(i)); //adding new list.
+                newSubset.add(num);
+                subsets.add(newSubset);
+            }
+        }
+
+        return subsets;
+    }
+}
+
+/* Solution 2: Using Backtracking.
 GoodTecher: https://www.youtube.com/watch?v=VdnvmfzA1pw&t=10s
 
-Time complexity: O(N × 2^N) to generate all subsets and then copy them into output list.
-Space complexity: O(N × 2^N) to keep all the subsets of length N, since each of N elements could be present or absent.
+TC: O(N × 2^N) to generate all subsets and then copy them into output list.
+SC: O(N × 2^N) to keep all the subsets of length N, since each of N elements could be present or absent.
 
 Asked by: Amazon, Facebook, Google, Apple, Uber, Microsoft, Bloomberg, Adobe, Yahoo, Goldman Sachs, and Walmart Labs.
 */
