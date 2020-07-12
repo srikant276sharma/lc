@@ -14,7 +14,9 @@ class Solution {
         for (int i = 0; i < 32; i++) {
             /* At first left shift res then OR with result of (n & 1) */
             res = res << 1;
-            res = res | (n & 1);
+            if ((n & 1) == 1) {
+                res = res | 1;
+            }
             n = n >> 1;
         }
 
