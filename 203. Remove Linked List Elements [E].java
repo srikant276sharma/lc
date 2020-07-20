@@ -1,10 +1,10 @@
-203. Remove Linked List Elements
+203. Remove Linked List Elements [E]
 https://leetcode.com/problems/remove-linked-list-elements/
 
-/*
-*/
+/*Solution 1: Using Dummy Node.
 
-/*Solution 1: Using dummy node. 
+TC: O(n), where n is number of nodes in the Linked List.
+SC: O(1).
 */
 
 /**
@@ -12,15 +12,21 @@ https://leetcode.com/problems/remove-linked-list-elements/
  * public class ListNode {
  *     int val;
  *     ListNode next;
- *     ListNode(int x) { val = x; }
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
     public ListNode removeElements(ListNode head, int val) {
+        if (head == null) {
+            return null;
+        }
+
         ListNode dummy = new ListNode(0);
-        dummy.next = head;
         ListNode cur = dummy;
-        
+        cur.next = head;
+
         while (cur.next != null) {
             if (cur.next.val == val) {
                 cur.next = cur.next.next;
@@ -31,10 +37,3 @@ class Solution {
         return dummy.next;
     }
 }
-
---
-Time complexity: O(n) where n is the no. of nodes.
-Space complexity: O(1).
---
-Asked by: .
---
