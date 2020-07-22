@@ -6,8 +6,8 @@ Amell: https://www.youtube.com/watch?v=smjr2ow6oKc
 Tushar: https://www.youtube.com/watch?v=vjt5Y6-1KsQ
 Vivekanand: https://www.youtube.com/watch?v=YsLko6sSKh8
 
-Time complexity: O(n).
-Space complexity: O(n).
+TC: O(n).
+SC: O(n).
 */
 
 /**
