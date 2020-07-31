@@ -1,35 +1,28 @@
 70. Climbing Stairs [E]
 https://leetcode.com/problems/climbing-stairs/
+
+/* Solution 1: Using Dynamic Programming.
+Formula: f(n) = f(n - 1) + f(n - 2)
 Tushar: https://www.youtube.com/watch?v=CFQk7OQO_xM
 
-/* Solution 1:
-Using Dynamic Programming.
-Formula: f(n) = f(n - 1) + f(n - 2)
+TC: O(n), Single pass.
+SC: O(1), Constant space needed.
+
+Asked by: Microsoft, Google, Alibaba, Bloomberg, Amazon, Goldman Sachs, Walmart Labs, LinkedIn.
 */
 
 class Solution {
     public int climbStairs(int n) {
-        if (n == 0 || n == 1) {
+        if (n < 3) {
             return n;
         }
 
-        int n1 = 1;
-        int n2 = 2;
-        int distinctWays = 0;
-
+        int x = 1, y = 2, distinctWays = 0;
         for (int i = 3; i <= n; i++) {
-            distinctWays = n1 + n2;
-            n1 = n2;
-            n2 = distinctWays;
+            distinctWays = x + y;
+            x = y;
+            y = distinctWays;
         }
-
-        return n2;
+        return distinctWays;
     }
 }
-
---
-Time complexity : O(n), Single pass.
-Space complexity: O(1), Constant space needed.
---
-Asked by: Microsoft, Google, Alibaba, Bloomberg, Amazon, Goldman Sachs, Walmart Labs, LinkedIn.
---
