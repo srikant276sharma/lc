@@ -1,6 +1,39 @@
 404. Sum of Left Leaves [E]
 https://leetcode.com/problems/sum-of-left-leaves/
 
+/* Solution 2: Using Queue.
+
+TC: O(n), where n = number of nodes.
+SC: O(n). 
+*/
+
+class Solution {
+    public int sumOfLeftLeaves(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        int result = 0;
+
+        while (!queue.isEmpty()) {
+            TreeNode cur = queue.poll();
+            if (cur.left != null) {
+                queue.add(cur.left);
+                //if left node is a leaf node then add its value.
+                if (cur.left.left == null && cur.left.right == null) {
+                    result += cur.left.val;
+                }
+            }
+            if (cur.right != null) {
+                queue.add(cur.right);
+            }
+        }
+
+        return result;
+    }
+}
+
 /*Solution 1: 
   Using PreOrder Traversal.
 */
@@ -34,10 +67,3 @@ class Solution {
         return sum;
     }
 }
-
---
-Time complexity:  O(n), where n is number of nodes in the Tree.
-Space complexity: O(n).
---
-Asked by: Bloomberg, Facebook.
---
