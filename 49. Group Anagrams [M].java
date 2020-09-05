@@ -63,7 +63,7 @@ class Solution {
             sb = new StringBuilder();
             //TC: O(26).
             for (int i : charFreqArr) {
-                sb.append(i);
+                sb.append(i).append('~');
             }
             //for "abbccc", key will be like, 12300000000000000000000000 */
             String key = sb.toString();
