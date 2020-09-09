@@ -15,27 +15,28 @@ Algorithm:
    - else, add current character's value to sum.
 */
 --
-
 class Solution {
     public int romanToInt(String s) {
-        int res = 0;
-        Map<Character, Integer> map = new HashMap<>();
-        map.put('I', 1);
-        map.put('V', 5);
-        map.put('X', 10);
-        map.put('L', 50);
-        map.put('C', 100);
-        map.put('D', 500);
-        map.put('M', 1000);
-
-        for (int i = 0; i < s.length(); i++) {
-            if (i > 0 && map.get(s.charAt(i)) > map.get(s.charAt(i - 1))) {
-                res += map.get(s.charAt(i)) - 2 * (map.get(s.charAt(i - 1)));
-            } else {
-                res += map.get(s.charAt(i));
-            }
+        if (s == null || s.length() == 0) {
+            return 0;
         }
-        return res;
+        HashMap<Character, Integer> charMap = new HashMap<>();
+        charMap.put('I', 1);
+        charMap.put('V', 5);
+        charMap.put('X', 10);
+        charMap.put('L', 50);
+        charMap.put('C', 100);
+        charMap.put('D', 500);
+        charMap.put('M', 1000);
+
+        int result = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (i > 0 && charMap.get(s.charAt(i)) > charMap.get(s.charAt(i - 1))) {
+                result -= 2 * (charMap.get(s.charAt(i - 1)));
+            }
+            result += charMap.get(s.charAt(i));
+        }
+        return result;
     }
 }
 --
