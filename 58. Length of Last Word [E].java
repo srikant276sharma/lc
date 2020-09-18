@@ -11,22 +11,19 @@ Asked by:
 
 class Solution {
     public int lengthOfLastWord(String s) {
-        if (s == null) {
-            return 0;
+        int len = 0;
+        if (s == null || s.length() == 0) {
+            return len;
         }
-        StringBuilder sb = new StringBuilder();
-        for (int i = s.length() - 1; i >= 0; i--) {
-            //skip all empty characters which are present at the end of the input string.
-            if (s.charAt(i) == ' ') {
-                if (sb.length() != 0) {
-                    return sb.length(); //applicable in such cases: "Hello World        "
-                }
-            } else {
-                //add all characters of the last word.
-                sb.append(s.charAt(i));
+        
+        int n = s.length(); 
+        while (--n >= 0) {
+            if (s.charAt(n) != ' ') {
+                len++;
+            } else if (len > 0 && s.charAt(n) == ' ') {
+                break;
             }
         }
-
-        return sb.length(); //applicable in such cases: "a", "   "
+        return len;
     }
 }
