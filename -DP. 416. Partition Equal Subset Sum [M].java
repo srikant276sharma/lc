@@ -15,27 +15,27 @@ class Solution {
         for (int num : nums) {
             sum += num;
         }
-        //odd sum check.
+        //odd sum check, for partition equal subset sum, sum should be even.
         if (sum % 2 != 0) {
-            return false; 
+            return false;
         }
+        //adding an extra row and column because of 0.
+        boolean[][] dp = new boolean[n + 1][sum / 2 + 1];
         
-        boolean[][] dp = new boolean[n + 1][sum / 2 + 1]; //because of 0, adding an extra row and column.
-        
-        for (int i = 0; i <= n; i++) {
-            for (int j = 0; j <= sum / 2; j++) {
-                if (i == 0 || j == 0) { //base case.
+        for (int i = 0; i <= n; i++) { //iterate over num.
+            for (int j = 0; j <= sum / 2; j++) { //iterate over sum.
+                //base case.
+                if (j == 0) { //cur sum == 0.
+                    dp[i][j]  = true;
+                } else if (i == 0) { //num == 0.
                     dp[i][j] = false;
-                } else if (nums[i - 1] > j) { //exclude case: cur num > cur sum.
+                } else if (nums[i - 1] > j) { //exclude: num > cur sum.
                     dp[i][j] = dp[i - 1][j];
-                } else if (nums[i - 1] == j) { //cur num == cur sum.
-                    dp[i][j] = true;
-                } else { //exclude cur num or include cur num.
+                } else { //exclude or include num.
                     dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i - 1]];
                 }
             }
         }
-        
         return dp[n][sum / 2];
     }
 }
