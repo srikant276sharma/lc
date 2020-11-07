@@ -1,6 +1,7 @@
 Matrix Chain Multiplication [M]
 
 /* Solution 1: Type: MCM. Recursive.
+https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/
 
 Aditya: https://www.youtube.com/watch?v=kMK148J9qEE&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=34
 
