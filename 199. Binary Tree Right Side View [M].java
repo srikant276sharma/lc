@@ -26,29 +26,32 @@ SC: O(H), H = height of the tree, because of recursive call stack.
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> res = new ArrayList<>();
+        //input check.
         if (root == null) {
             return res;
         }
-                
+        //level order traversal + while processing any node, process right child first then left child.
         Queue<TreeNode> queue = new LinkedList<>();
+        //add initial node.
         queue.add(root);
         
         while (!queue.isEmpty()) {
+            res.add(queue.peek().val);
+            //child processing.
             int levelSize = queue.size();
             
             for (int i = 0; i < levelSize; i++) {
-                TreeNode node = queue.poll();
-                if (i == levelSize - 1) {
-                    res.add(node.val);        
+                TreeNode cur = queue.poll();
+                //process right child first and then left child.
+                if (cur.right != null) {
+                    queue.add(cur.right);
                 }
-                if (node.left != null) {
-                    queue.add(node.left);
-                }
-                if (node.right != null) {
-                    queue.add(node.right);
+                if (cur.left != null) {
+                    queue.add(cur.left);
                 }
             }
         }
         return res;
     }
 }
+
