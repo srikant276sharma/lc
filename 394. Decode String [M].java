@@ -2,11 +2,10 @@
 https://leetcode.com/problems/decode-string/
 
 /*
-Assume, nnn is the length of the string sss.
-Time Complexity: O(maxK⋅n)\mathcal{O}(\text{maxK} \cdot n)O(maxK⋅n) as in Approach 2
-Space Complexity: O(n)\mathcal{O}(n)O(n). This is the space used to store the internal call stack used for recursion. 
-As we are recursively decoding each nested pattern, the maximum depth of recursive call stack would not be more than nnn
-
+Assume, n is the length of the string s.
+Time Complexity: O(maxK⋅n)
+Space Complexity: O(n). This is the space used to store the internal call stack used for recursion. 
+As we are recursively decoding each nested pattern, the maximum depth of recursive call stack would not be more than n.
 */
 
 class Solution {
