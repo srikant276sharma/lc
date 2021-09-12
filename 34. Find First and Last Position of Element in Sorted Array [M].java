@@ -2,7 +2,7 @@
 https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 
 /* Solution 1: Using Binary Search.
-Errichto: https://www.youtube.com/watch?v=dVXy6hmE_0U
+Aditya
 
 Time: O(log n).
 Space: O(1).
@@ -12,29 +12,29 @@ Asked by: Facebook.
 
 class Solution {
     public int[] searchRange(int[] nums, int target) {
-        int first = findFirstPosition(nums, target);
-        int last = findFirstPosition(nums, target + 1) - 1; //Try to find the first position of an element which is greater than target.
-
-        if (first <= last) {
-            return new int[]{first, last};
-        } else {
-            return new int[]{-1, -1};
-        }
+         int firstPos = binSearch(nums, target, true);
+         int lastPos = binSearch(nums, target, false);
+        return new int[]{firstPos, lastPos};
     }
 
-    private int findFirstPosition(int[] nums, int target) {
-        int len = nums.length;
-        int low = 0, high = len - 1, firstPos = len;
-
-        while (low <= high) {
+    private int binSearch(int[] nums, int target, boolean isFirstPos) {
+        int low = 0, high = nums.length - 1, res = -1;
+    
+        while(low <= high) {
             int mid = low + (high - low) / 2;
-            if (nums[mid] >= target) {
-                firstPos = mid;
+            if (target == nums[mid]) {
+                res = mid;
+                if (isFirstPos) {
+                    high = mid - 1;
+                } else {
+                    low = mid + 1;
+                }
+            } else if (target < nums[mid]) {
                 high = mid - 1;
             } else {
                 low = mid + 1;
             }
         }
-        return firstPos;
+        return res;
     }
 }
