@@ -1,7 +1,7 @@
 268. Missing Number [E]
 https://leetcode.com/problems/missing-number/
 
-/* Solution 1: Using Gauss' Formula: ∑i=0 n ​i = n(n+1)/2​.
+/* Solution 1: Using Gauss' Formula: ∑i=0 to n => i = n(n+1)/2.
 Algorithm:
 We can compute the sum of nums in linear time, 
 and by Gauss' formula, we can compute the sum of the first n natural numbers in constant time. 
