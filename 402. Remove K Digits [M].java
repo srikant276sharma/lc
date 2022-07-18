@@ -2,94 +2,48 @@
 https://leetcode.com/problems/remove-k-digits/
 
 /* Solution 1: Using Stack.
-https://leetcode.com/problems/remove-k-digits/discuss/88708/Straightforward-Java-Solution-Using-Stack
-
-Time: O(n + k), where n = number of characters in input string and k = number of digits to be removed.
-Space: O(n).
-
-Asked by: .
+TD: https://www.youtube.com/watch?v=3QJzHqNAEXs
+Time: O(n)
+Space: O(n)
 */
 
 class Solution {
     public String removeKdigits(String num, int k) {
-        int len = num.length();
-        if (k == len) {
-            return "0";
+        //input validation.
+        if (num == null || num.length() == 0) {
+            return "";
         }
 
-        Stack<Character> stack = new Stack<>();
-        String res = "";
-
+        Stack<Character> st = new Stack<>();
+        //store the final string in stack.
         for (char c : num.toCharArray()) {
-            //whenever meet a digit which is less than the previous digit, discard the previous digit.
-            while (k > 0 && !stack.isEmpty() && stack.peek() > c) {
-                stack.pop();
+            //in case of any dip, pop the peak elememt.
+            while (k > 0 && !st.isEmpty() && st.peek() > c) {
+                st.pop();
                 k--;
             }
-            stack.push(c);
+            //to handle leading 0 and input like [10200, 1 => 200]
+            if (!st.isEmpty() || c != '0') {
+                st.push(c);
+            }
         }
-
-        //To handle a scenario like "1111" or "112".
-        while (k > 0) {
-            stack.pop();
+        //for input like 123: remove the largest values from the top of the stack.
+        while (!st.isEmpty() && k > 0) {
+            st.pop();
             k--;
         }
+        if (st.isEmpty()) {
+            return "0";
+        }
 
-        //Construct result from stack.
         StringBuilder sb = new StringBuilder();
-        while (!stack.isEmpty()) {
-            sb.append(stack.pop());
+        while (!st.isEmpty()) {
+            sb.append(st.pop());
         }
-        res = sb.reverse().toString();
-
-        //if res has any leading 0's then remove leading 0's.
-        if (res.charAt(0) == '0') {
-            int i = 0;
-            while (i < res.length() && res.charAt(i) == '0') {
-                i++;
-            }
-            res = res.substring(i);
-        }
-
-        if (res.length() == 0) {
-            return "0";
-        }
-        return res;
+        
+        return sb.reverse().toString();
     }
 }
 
-/*Solution: 2
- Knowledge Center: https://www.youtube.com/watch?v=xk6aYK2IzVk
-*/
-
-class Solution {
-    public String removeKdigits(String num, int k) {
-        if (k == num.length()) {
-            return "0";
-        }
-
-        int i = 0;
-        while (k > 0) {
-            i = (i > 0) ? (i - 1) : 0;
-
-            while (i < num.length() - 1 && num.charAt(i) <= num.charAt(i + 1)) {
-                i++;
-            }
-            num = num.substring(0, i) + num.substring(i + 1);
-            k--;
-        }
-
-        if (num.charAt(0) == '0') {
-            i = 0;
-            while (i < num.length() && num.charAt(i) == '0') {
-                i++;
-            }
-            num = num.substring(i);
-        }
-
-        if (num.length() == 0) {
-            return "0";
-        }
-        return num;
-    }
-}
+//TC: O(n)
+//SC: O(n)
